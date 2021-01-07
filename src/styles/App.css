@@ -9,3 +9,19 @@
     align-items: center !important;
     color: #fff !important;
 }
+
+.containerLayouts{
+    min-height: 100vh !important;
+}
+
+.contenedor{
+    background-color: rgb(225, 225, 225) !important;
+    margin-top: 2% !important;
+    border-radius: 6px;
+    padding: 2%;
+}
+
+.footerSohamu{
+    background: #000 !important;
+    color: #fff !important;
+}
