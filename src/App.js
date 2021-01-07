@@ -3,6 +3,8 @@ import { Layout, Typography, Menu } from 'antd';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
+import './styles/App.css'
+
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
 const { SubMenu } = Menu;
@@ -11,9 +13,14 @@ function App() {
   return (
     <div>
      <Layout>
-      <Header style={{padding:15}}>
-        <Avatar style={{float:'right'}} icon={<UserOutlined />} />
-        <Title style={{color:'white'}}level={3}>Armando</Title>
+      <Header className="header">
+        <div>
+          <Title style={{color:'white', float:'left', margin:0}} level={3}>Sfleet</Title>
+        </div>
+        <div className="avatarMenu">
+          <Title style={{color: 'white', margin:0, paddingRight: 5}} level={5}>Armando</Title>
+          <Avatar icon={<UserOutlined />} />
+        </div>
       </Header>
       <Layout>
         <Sider>
