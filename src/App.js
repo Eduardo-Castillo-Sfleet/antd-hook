@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 
-import { Layout, Typography, Menu, Affix, Breadcrumb } from 'antd';
-import { Avatar } from 'antd';
-import { UserOutlined, CarFilled } from '@ant-design/icons';
-
+import { Affix, Avatar,  Breadcrumb, Layout, Typography, Menu, } from 'antd';
+import { UserOutlined, CarFilled, SmileFilled, SignalFilled, ReadFilled, BankFilled,
+  BookFilled, FileExcelFilled, FilePdfFilled } from '@ant-design/icons';
+  
+import './styles/App.css';
+  
+import { ExportarPdf } from './components/ExportarPdf';
 import { Perfil } from "./components/Perfil";
-import './styles/App.css'
 
 const { Header, Footer, Sider, Content } = Layout;
 const { Title } = Typography;
@@ -35,13 +37,14 @@ function App() {
         <Sider>
           <Menu theme="dark" mode="inline">
             <Menu.Item key="1" icon={<CarFilled />}>Siniestros</Menu.Item>
-            <Menu.Item key="2">Clientes corporativos</Menu.Item>
-            <Menu.Item key="3">Finanzas</Menu.Item>
-            <Menu.Item key="4">Historial</Menu.Item>
-            <SubMenu key="sub1" title="Exportar">
-              <Menu.Item key="5">PDF</Menu.Item>
-              <Menu.Item key="6">Excel</Menu.Item>
+            <Menu.Item key="2" icon={<BankFilled/>}>Clientes corporativos</Menu.Item>
+            <Menu.Item key="3" icon={<SignalFilled/>}>Finanzas</Menu.Item>
+            <Menu.Item key="4" icon={<ReadFilled/>}>Historial</Menu.Item>
+            <SubMenu key="sub1" title="Exportar" icon={<BookFilled/>}>
+              <Menu.Item key="5" icon={<FilePdfFilled/>}><Link to="/exportarPdf">PDF</Link></Menu.Item>
+              <Menu.Item key="6" icon={<FileExcelFilled/>}>Excel</Menu.Item>
             </SubMenu>
+            <Menu.Item key="perfil" icon={<SmileFilled/>}><Link to="/perfil">Perfil</Link></Menu.Item>
           </Menu>
         </Sider>
       <Layout>
@@ -57,6 +60,7 @@ function App() {
             <div className="contenedor">
               <Route exact path="/perfil" component={Perfil}
               ></Route>
+              <Route exact path="/exportarPdf" component={ExportarPdf}></Route>
             </div>
           </Content>
         </Layout>
